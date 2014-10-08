@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="spBrandyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="spBrandyModelStoreContainer">
+    <EntitySet Name="Authors" EntityType="spBrandyModel.Store.Authors" store:Type="Tables" Schema="spBrandy" />
+    <EntitySet Name="Comments" EntityType="spBrandyModel.Store.Comments" store:Type="Tables" Schema="spBrandy" />
+    <EntitySet Name="Posts" EntityType="spBrandyModel.Store.Posts" store:Type="Tables" Schema="spBrandy" />
+  </EntityContainer>
+  <EntityType Name="Authors">
+    <Key>
+      <PropertyRef Name="AuthorID" />
+    </Key>
+    <Property Name="AuthorID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Body" Type="nvarchar" MaxLength="500" />
+    <Property Name="DateCreate" Type="datetime" />
+    <Property Name="PostID" Type="int" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="PostsID" />
+    </Key>
+    <Property Name="PostsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="DateCreate" Type="datetime" />
+    <Property Name="AuthorID" Type="int" Nullable="false" />
+    <Property Name="Tilte" Type="nvarchar" MaxLength="200" />
+    <Property Name="ImgUrl" Type="nvarchar" MaxLength="200" />
+    <Property Name="likes" Type="int" />
+  </EntityType>
+</Schema>
